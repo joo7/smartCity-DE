@@ -155,7 +155,7 @@ def simulate_journey(kafka_producer, device_id):
         produce_data_to_kafka(kafka_producer, EMERGENCY_TOPIC, emergency_data)
         time.sleep(5)
 
-
+# main
 if __name__ == "__main__":
     producer_config = {
         'bootstrap.servers': KAFKA_BOOTSTRAP_SERVER,
