@@ -39,13 +39,13 @@ def main():
                 .select('data.*')\
                 .withWatermark(eventTime='timestamp', delayThreshold='2 minutes'))
 
-
     vehicleDF = read_kafka_topic('vehicle_data', schema.vehicleSchema).alias('vehicle')
     gpsDF = read_kafka_topic('gps_data', schema.gpsSchema).alias('gps')
     trafficDF = read_kafka_topic('traffic_data', schema.trafficSchema).alias('traffic')
     weatherDF = read_kafka_topic('weather_data', schema.weatherSchema).alias('weather')
     emergencyDF = read_kafka_topic('emergency_data', schema.incidentSchema).alias('emergency')
     def streamWriter(input: DataFrame, checkpointFolder, output):
+        # writing data into s3
         return (input.writeStream
                 .format('parquet')
                 .option('checkpointLocation', checkpointFolder)
