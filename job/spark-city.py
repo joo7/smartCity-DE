@@ -12,7 +12,7 @@ load_dotenv()
 def main():
     # Create SparkConf object
     bucket = os.environ['BUCKET']
-    prit('process started')
+    print('process started')
     conf = SparkConf() \
         .setAppName('smart-city-streaming') \
         .set('spark.jars.packages',
