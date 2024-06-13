@@ -1,0 +1,5 @@
+/.idea/
+/venv/
+/scrap_testing/
+/job/aws_helper.py
+.env
